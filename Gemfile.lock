@@ -78,6 +78,8 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dockerfile-rails (1.5.1)
+      rails
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -114,8 +116,13 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
+    nokogiri (1.15.3-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.15.3-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.15.3-x86_64-linux)
+      racc (~> 1.4)
+    pg (1.5.3)
     puma (5.6.6)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -160,7 +167,9 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.3-aarch64-linux)
     sqlite3 (1.6.3-arm64-darwin)
+    sqlite3 (1.6.3-x86_64-linux)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.2)
@@ -182,14 +191,18 @@ GEM
     zeitwerk (2.6.8)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
   cssbundling-rails
   debug
+  dockerfile-rails (>= 1.5)
   jbuilder
   jsbundling-rails
+  pg
   puma (~> 5.0)
   rails (~> 7.0.6)
   sprockets-rails
