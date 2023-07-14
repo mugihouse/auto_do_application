@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_13_231058) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_13_235601) do
+  create_table "profiles", force: :cascade do |t|
+    t.time "dinner_time", null: false
+    t.time "bedtime", null: false
+    t.integer "holiday_of_week", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body"
+    t.integer "time_required", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
     t.string "line_id", null: false
@@ -19,4 +39,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_231058) do
     t.index ["line_id"], name: "index_users_on_line_id"
   end
 
+  add_foreign_key "profiles", "users"
+  add_foreign_key "tasks", "users"
 end
