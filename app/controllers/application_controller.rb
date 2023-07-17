@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
   helper_method :login_required
   helper_method :logged_in?
 
-  def index
-    render html: "hello!"
-  end
-
   private
 
   def current_user
