@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'application#index'
-  
+  root 'static_pages#top'
+  get '/after_login', to: 'static_pages#after_login'
+
   resource :user, only: %i[new create]
 end
