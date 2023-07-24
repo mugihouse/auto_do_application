@@ -3,17 +3,18 @@
   <head>
     <title>Noritama</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- liff_sdk -->
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= include_gon %>
-    
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
     <%= yield %>
-    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   </body>
 </html>
