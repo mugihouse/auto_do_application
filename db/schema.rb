@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_13_235601) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_23_003927) do
   create_table "profiles", force: :cascade do |t|
     t.time "dinner_time", null: false
     t.time "bedtime", null: false
@@ -32,7 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_13_235601) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", null: false
     t.string "line_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
