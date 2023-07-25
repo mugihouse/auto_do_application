@@ -18,10 +18,8 @@ class UsersController < ApplicationController
     # LINEユーザーIDを取得
     line_id = JSON.parse(res.body)['sub']
     user = User.find_by(line_id: line_id)
-    if user.nil?
-      User.create(line_id: line_id)
-    elsif (session[:user_id] = user.id)
-      render json: user
-    end
+    user = User.create!(line_id: line_id) if user.nil?
+    session[:user_id] = user.id
+    render json: user
   end
 end
