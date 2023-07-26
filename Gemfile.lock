@@ -102,6 +102,7 @@ GEM
       activesupport (>= 5.0.0)
     jsbundling-rails (1.1.2)
       railties (>= 6.0.0)
+    line-bot-api (1.28.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -216,6 +217,7 @@ DEPENDENCIES
   gon
   jbuilder
   jsbundling-rails
+  line-bot-api
   pg
   puma (~> 5.0)
   rails (~> 7.0.6)
