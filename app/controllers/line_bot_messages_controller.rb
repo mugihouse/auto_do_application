@@ -1,0 +1,2 @@
+class LineBotMessagesController < ApplicationController
+end
