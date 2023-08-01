@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  skip_before_action :login_required
+  
   def top
     if current_user.nil?
       render :before_login

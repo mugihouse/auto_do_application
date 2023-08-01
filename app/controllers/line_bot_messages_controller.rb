@@ -1,4 +1,5 @@
 class LineBotMessagesController < ApplicationController
+  skip_before_action :login_required
   # CSRF対策を無効化
   protect_from_forgery except: [:callback]
 
