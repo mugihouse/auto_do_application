@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   post '/callback', to: 'line_bot_messages#callback'
 
   resources :users, only: %i[new create]
-  resource :profile, only: %i[new create]
+  resource :profile, only: %i[new create show]
 end
