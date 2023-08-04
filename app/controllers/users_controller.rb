@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   require 'net/http'
   require 'uri'
 
+  skip_before_action :login_required
   before_action :set_liff_id, only: %i[new]
+
 
   def new
     if current_user
