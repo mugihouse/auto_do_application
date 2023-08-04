@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_31_121641) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_04_024806) do
   create_table "day_of_weeks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -29,7 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_121641) do
   create_table "profiles", force: :cascade do |t|
     t.time "dinner_time", null: false
     t.time "bedtime", null: false
-    t.integer "holiday_of_week", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
