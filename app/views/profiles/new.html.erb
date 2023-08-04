@@ -2,32 +2,7 @@
   <div class="row">
     <div class="col-md-10 offset-md-1">
       <h1 class="text-4xl font mt-4">プロフィール登録</h1>
-        <%= form_with model: @profile, url: profile_path, local: true do |f| %>
-          <div class="row mb-3">
-            <div class="col-auto">
-              <%= f.label :dinner_time, class: "col-sm-2 col-form-label" %>
-              <%= f.time_select :dinner_time, default: { hour: 19, min: 0 }, class: 'form-control' %>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-auto">
-              <%= f.label :bedtime, class: "col-sm-2 col-form-label" %>
-              <%= f.time_select :bedtime, default: { hour: 23, min: 0 }, class: 'form-control' %>
-            </div>
-          </div>
-          <div class="row mb-3">
-              <%= f.label :day_of_weeks, class: 'col-form-label col-sm-2 pt-0' %>
-              <div class="col-sm-10">
-                  <%= f.collection_check_boxes(:day_of_week_ids, DayOfWeek.all, :id, :name) do |b| %>
-                    <div class="form-check">
-                      <%= b.label class: 'form-check-label' %>
-                        <%= b.check_box class: 'form-check-input' %>
-                    </div>
-                  <% end %>
-              </div>
-          </div>
-          <%= f.submit class: 'btn btn-primary' %>
-        <% end %>
+        <%= render 'form' , profile: @profile %>
     </div>
   </div>
 </div>
