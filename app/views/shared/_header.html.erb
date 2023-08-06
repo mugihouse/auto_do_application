@@ -1,0 +1,27 @@
+<header>
+  <div class="container">
+    <nav class='navbar navigation navbar-light bg-light'>
+    <%= link_to 'AutoDo', root_path, class: "navbar-brand" %>
+    <button class="nav-item btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight">
+      <span class='navbar-toggler-icon'></span>
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul>
+          <li>
+            <%= link_to 'マイページ', root_path %>
+          </li>
+          <li>
+            <%= link_to 'プロフィール編集', edit_profile_path(current_user) %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
