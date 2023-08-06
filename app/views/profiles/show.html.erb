@@ -1,11 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 offset-md-1"><h1 class="text-4xl font mt-4">プロフィール詳細</h1>
-      <%= @profile.dinner_time.strftime( "%H:%M" ) %>
-      <%= @profile.bedtime.strftime( "%H:%M" ) %>
-      <% @profile.day_of_weeks.each do |day| %>
-        <%= day.name %>
-      <% end %>
-    </div>
+    <div class="col-10 offset-1"><h1 class="text-4xl font mt-4 mb-4">プロフィール詳細</h1></div>
+        <div class="col-5 offset-1 text-center">夕ご飯</div>
+        <div class="col-5 text-center">
+          <%= @profile.dinner_time.strftime( "%H:%M" ) %>
+      </div>
+      <div class="col-5 offset-1 text-center">就寝時間</div>
+      <div class="col-5 text-center">
+        <%= @profile.bedtime.strftime( "%H:%M" ) %>
+      </div>
+      <div class="col-5 offset-1 text-center">休みの日</div>
+      <div class="col-5 text-center">
+        <% @profile.day_of_weeks.each do |day| %>
+          <div class="d-flex flex-column bd-highlight">
+            <div class="bd-highlight">
+              <%= day.name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
   </div>
 </div>
