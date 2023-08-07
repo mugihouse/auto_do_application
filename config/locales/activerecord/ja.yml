@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      profile: 'プロフィール'
+      task: 'タスク'
+      day_of_week: '休日'
+    attributes:
+      profile:
+        dinner_time: '夕ご飯の時間'
+        bedtime: '就寝時間'
+      task:
+        title: 'タイトル'
+        body: '内容'
+        time_required: '所要時間'
