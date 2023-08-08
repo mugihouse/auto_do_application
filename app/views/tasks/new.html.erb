@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-10 offset-1">
+      <h1 class="text-4xl font mt-4">タスク登録</h1>
+      <%= form_with model: @task, url: profile_path, local: true do |f| %>
+        <div class="mb-3">
+          <%= f.label :title, class: "col-5 col-form-label" %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :body, class: "col-5 col-form-label" %>
+          <%= f.text_area :body, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :time_required, class: 'd-inline-flex' %>
+          <%= f.collection_radio_buttons :time_required, Task.time_requireds_i18n, :first, :last do |b| %>
+            <div class="form-check">
+              <%= b.radio_button class: 'radio_button' %>
+              <%= b.label class: 'form-check-label' %>
+            </div>
+          <% end %>
+        </div>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
