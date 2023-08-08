@@ -13,3 +13,9 @@ ja:
         title: 'タイトル'
         body: '内容'
         time_required: '所要時間'
+  enums:
+    task:
+      time_required:
+        short: '短い'
+        middle: 'ちょっと長い'
+        long: 'かなり長い'
