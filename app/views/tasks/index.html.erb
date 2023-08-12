@@ -1,0 +1,21 @@
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">
+              <%= Task.human_attribute_name(:title) %>
+            </th>
+            <th scope="col">
+              <%= Task.human_attribute_name(:time_required) %>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @tasks %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

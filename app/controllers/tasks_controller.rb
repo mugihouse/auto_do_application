@@ -1,5 +1,10 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update]
+
+  def index
+    @tasks = current_user.tasks.all
+  end
+
   def new
     @task = Task.new()
   end
