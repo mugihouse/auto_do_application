@@ -1,4 +1,5 @@
 <%= form_with model: task, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
   <div class="mb-3">
     <%= f.label :title, class: "col-5 col-form-label" %>
     <%= f.text_field :title, class: 'form-control' %>
