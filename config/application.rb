@@ -42,5 +42,8 @@ module Noritama
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # field_with_errorsを読み込まないよう設定
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end
