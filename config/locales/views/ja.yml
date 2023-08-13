@@ -1,3 +1,6 @@
 ja:
   defaults:
     edit: '編集'
+    delete: '削除'
+    messages:
+      delete_confirm: 'このタスクを削除しますか？'
