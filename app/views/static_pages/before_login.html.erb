@@ -1,7 +1,29 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1 class="p-3 mb-2 bg-primary text-white">ログイン前のページです</h1>
-    <p>This is the homepage of my awesome website.</p>
-    <%= link_to '（LINE）ユーザー登録・ログイン' , new_user_path, class: 'btn btn-success btn-lg' %>
+  <div class="row">
+    <div class="jumbotron">
+      <div class="col-12">
+        <h1 class="text-center my-2">自動でタスクを選び<br>LINEで配信</h1>
+        <%= image_tag '1544162981.png', class: 'd-block mx-auto img-fluid' %>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="text-center">
+        <p>使い方</p>
+          <p>1. LINEで友だち登録&ログイン</p>
+          <p>下のリンクから友達登録をしましょう</p>
+            <div class="col-12">
+              <%= image_tag 'S_gainfriends_2dbarcodes_BW.png' , alt: '友だち登録' , class: 'd-block mx-auto my-1' %>
+              <%= link_to 'https://lin.ee/4zIuNnB' do %>
+                <%= image_tag 'line_add_friends:btn:ja.png' , height: '36' , border: '0', class: 'd-block mx-auto my-1' %>
+              <% end %>
+            </div>
+        <p>2. プロフィールを登録しタスクの配信時間を決めます</p>
+        <% # 画像を挟む %>
+        <p>3. タスクを登録しましょう</p>
+        <% # 画像を挟む %>
+        <p>4. 夕ご飯の時間に設定した1時間後に今日のタスクが配信されます</p>
+        <% # 画像を挟む %>
+      </div>
+    </div>
   </div>
 </div>
