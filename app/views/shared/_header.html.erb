@@ -26,6 +26,9 @@
           <li>
             <%= link_to 'タスク一覧', tasks_path %>
           </li>
+          <li>
+            <%= link_to 'ログアウト' , logout_path, data: { turbo: true, turbo_method: :delete } %>
+          </li>
         </ul>
       </div>
     </div>
