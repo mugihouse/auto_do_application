@@ -7,6 +7,10 @@ app = "autodo"
 primary_region = "nrt"
 console_command = "/rails/bin/rails console"
 
+[processes]
+  web = "bin/rails server"
+  cron = "supercronic /rails/crontab"
+
 [deploy]
   release_command = "./bin/rails db:prepare"
 
@@ -16,7 +20,7 @@ console_command = "/rails/bin/rails console"
   auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 0
-  processes = ["app"]
+  processes = ["web"]
 
 [[statics]]
   guest_path = "/rails/public"
