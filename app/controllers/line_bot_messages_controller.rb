@@ -15,7 +15,54 @@ class LineBotMessagesController < ApplicationController
                 when Line::Bot::Event::Message
                   case event.type
                   when Line::Bot::Event::MessageType::Text
-                  { type: 'text', text: event.message['text'] }
+                    case event.message['text']
+                    when "タスクを完了しました"
+                      { "type": "template",
+                        "altText": "次のタスクに移りますか？",
+                        "template": {
+                          "type": "buttons",
+                          "text": "次のタスクに移りますか？",
+                          "actions": [
+                            {
+                              "type": "message",
+                              "label": "はい",
+                              "text": "はい"
+                            },
+                            {
+                              "type": "message",
+                              "label": "いいえ",
+                              "text": "いいえ"
+                            }
+                          ]
+                        }
+                      }
+                    when "はい"
+                      { "type": "template",
+                        "altText": "次のタスク",
+                        "template": {
+                          "type": "buttons",
+                          "text": "次のタスク",
+                          "actions": [
+                            {
+                              "type": "message",
+                              "label": "完了",
+                              "text": "タスクを完了しました"
+                            }
+                          ]
+                        }
+                      }
+                    when "いいえ"
+                      { "type": "text",
+                        "text": "お疲れ様でした！\nゆっくり休んでくださいね$",
+                        "emojis": [
+                          {
+                            "index": 21,
+                            "productId": "5ac1bfd5040ab15980c9b435",
+                            "emojiId": "009"
+                          }
+                        ]
+                      }
+                    end
                   end
                 end
       client.reply_message(event['replyToken'], message)
