@@ -1,35 +1,44 @@
 <header>
   <div class="container">
-    <nav class='navbar navigation navbar-light bg-light'>
+    <nav class="navbar navigation navbar-light bg-light">
     <%= link_to 'AutoDo', root_path, class: "navbar-brand" %>
     <button class="nav-item btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight">
-      <span class='navbar-toggler-icon'></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
         <h5 id="offcanvasRightLabel">menu</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <ul>
-          <li>
-            <%= link_to 'マイページ', root_path %>
-          </li>
-          <li>
-            <%= link_to 'プロフィール編集', edit_profile_path(current_user) %>
-          </li>
-          <li>
-            <%= link_to 'タスク登録', new_task_path %>
-          </li>
-          <li>
-            <%= link_to 'タスク一覧', tasks_path %>
-          </li>
-          <li>
-            <%= link_to 'ログアウト' , logout_path, data: { turbo: true, turbo_method: :delete } %>
-          </li>
-        </ul>
+        <% if current_user %>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to 'マイページ', root_path, class: "nav-link" %>
+          </div>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to 'プロフィール編集', edit_profile_path(current_user), class: "nav-link" %>
+          </div>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to 'タスク登録', new_task_path, class: "nav-link" %>
+          </div>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to 'タスク一覧', tasks_path, class: "nav-link" %>
+          </div>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to 'ログアウト', logout_path, data: { turbo: true, turbo_method: :delete }, class: "nav-link" %>
+          </div>
+        <% else %>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to '利用規約', root_path, class: "nav-link" %>
+          </div>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to 'プライバシーポリシー', root_path, class: "nav-link" %>
+          </div>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to 'お問い合わせ', root_path, class: "nav-link" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </nav>
