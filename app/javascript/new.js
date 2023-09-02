@@ -5,35 +5,33 @@ document.addEventListener('DOMContentLoaded', () => {
   liff
     .init({
       liffId: gon.liff_id,
+      withLoginOnExternalBrowser: true
     })
-    .then(() => {
-      if (!liff.isLoggedIn()) {
-        // 外部ブラウザからでもログイン処理を行う
-        liff.login()
-      }
-    })
-
   // 初期化後の処理設定
   liff
     .ready.then(() => {
-      const idToken = liff.getIDToken()
-      const body = `idToken=${idToken}`
-      const request = new Request('/users', {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-          'X-CSRF-Token': token
-        },
-        method: 'POST',
-        body: body
-      })
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      } else {
+        const idToken = liff.getIDToken()
+        const body = `idToken=${idToken}`
+        const request = new Request('/users', {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+            'X-CSRF-Token': token
+          },
+          method: 'POST',
+          body: body
+        })
 
-    fetch(request)
-      .then(response => response.json())
-      .then(data => {
-        data_id = data
-      })
-      .then(() => {
-        window.location = '/after_login'
-      })
+        fetch(request)
+          .then(response => response.json())
+          .then(data => {
+            data_id = data
+          })
+          .then(() => {
+            window.location = '/after_login'
+          })
+      }
   })
 })
