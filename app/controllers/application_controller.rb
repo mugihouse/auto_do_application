@@ -1,11 +1,9 @@
 class ApplicationController < ActionController::Base
-  add_flash_types :success, :info, :warning, :danger
-  
-  before_action :login_required
-
   helper_method :current_user
   helper_method :login_required
   helper_method :logged_in?
+
+  add_flash_types :success, :info, :warning, :danger
 
   private
 
@@ -18,7 +16,11 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    redirect_to root_path unless current_user
+    unless current_user
+      flash[:danger] = 'ログインしてください'
+      redirect_back fallback_location: root_path
+    end
+
   end
 
   def logged_in?
