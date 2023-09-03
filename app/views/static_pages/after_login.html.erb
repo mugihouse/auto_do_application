@@ -1,6 +1,16 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1 class="p-3 mb-2 bg-danger text-white">ログイン後のページです</h1>
-    <p>This is the homepage of my awesome website.</p>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <% if current_user.profile.nil? %>
+        <div class="text-center">
+          <p>最初にプロフィールを登録しましょう！</p>
+          <%= link_to 'プロフィール登録', new_profile_path, class: "btn btn-primary" %>
+        </div>
+      <% else %>
+        <h2>マイページ</h2>
+        <p>開発中...</p>
+        <% # 今週のログを挿入予定 %>
+      <% end %>
+    </div>
   </div>
 </div>
