@@ -1,8 +1,10 @@
 <div class="container">
-  <div class="jumbotron">
-    <h1 class="p-3 mb-2 bg-danger text-white">ユーザー新規登録</h1>
-    <p>Loading・・・</p>
-    <p>※時間がかかることがございます。</p>
+  <div class="row">
+    <%= image_tag '1517706953.png', class: 'd-block mx-auto img-fluid', size: '480' %>
+    <div class="text-center">
+      <p>now loading...</p>
+      <p>※時間のかかる場合がございます。</p>
+    </div>
     <%= javascript_include_tag "new", "data-turbo-track": "reload", defer: true %>
   </div>
 </div>
