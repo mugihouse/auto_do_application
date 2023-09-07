@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
+  has_many :notifications
 
   validates :title, presence: true
   validates :time_required, presence: true
