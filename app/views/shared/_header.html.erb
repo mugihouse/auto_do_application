@@ -25,6 +25,15 @@
             <%= link_to 'タスク一覧', tasks_path, class: "nav-link" %>
           </div>
           <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to '利用規約' , root_path, class: "nav-link" %>
+          </div>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to 'プライバシーポリシー' , root_path, class: "nav-link" %>
+          </div>
+          <div class="border-bottom border-gray py-2 my-0">
+            <%= link_to 'お問い合わせ' , root_path, class: "nav-link" %>
+          </div>
+          <div class="border-bottom border-gray py-2 my-0">
             <%= link_to 'ログアウト', logout_path, data: { turbo: true, turbo_method: :delete }, class: "nav-link" %>
           </div>
         <% else %>
