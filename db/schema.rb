@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_232857) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_08_131345) do
   create_table "day_of_weeks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -23,7 +23,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_232857) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "delivery_date"
+    t.integer "user_id"
     t.index ["task_id"], name: "index_notifications_on_task_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "profile_day_of_weeks", force: :cascade do |t|
@@ -62,6 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_232857) do
   end
 
   add_foreign_key "notifications", "tasks"
+  add_foreign_key "notifications", "users"
   add_foreign_key "profile_day_of_weeks", "day_of_weeks"
   add_foreign_key "profile_day_of_weeks", "profiles"
   add_foreign_key "profiles", "users"
