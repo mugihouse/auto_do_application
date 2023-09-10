@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_131345) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer "status", default: 0, null: false
-    t.integer "task_id", null: false
+    t.integer "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "delivery_date"
