@@ -19,3 +19,7 @@ ja:
         short: '短い'
         middle: 'ちょっと長い'
         long: 'かなり長い'
+    notification:
+      status:
+        send: '送信済'
+        done: '実行済'
