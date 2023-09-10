@@ -16,6 +16,9 @@ class LineBotMessagesController < ApplicationController
                   when Line::Bot::Event::MessageType::Text
                     case event.message['text']
                     when "タスクを完了しました"
+                      user = User.find_by(line_id: event['source']['userId'])
+                      today_notifications = Notification.all.today_send_messages(user.id)
+                      today_notifications.map(&:done_task!)
                       { "type": "template",
                         "altText": "次のタスクに移りますか？",
                         "template": {
@@ -77,4 +80,5 @@ class LineBotMessagesController < ApplicationController
       config.channel_token = ENV['BOT_CHANNEL_TOKEN']
     end
   end
+
 end
