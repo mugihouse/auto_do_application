@@ -10,6 +10,8 @@ namespace :notification_task do
     end
 
     users.each do |user|
+      break if user.profile.nil?
+
       if (user.profile.dinner_time + 1.hour).strftime("%H:%M") == time
         if user.profile.day_of_weeks.ids.include?(today)
           # 休日の場合
