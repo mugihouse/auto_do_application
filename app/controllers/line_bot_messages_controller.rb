@@ -19,6 +19,7 @@ class LineBotMessagesController < ApplicationController
                       user = User.find_by(line_id: event['source']['userId'])
                       today_notifications = Notification.all.today_send_messages(user.id)
                       today_notifications.map(&:done_task!)
+                      
                       { "type": "template",
                         "altText": "次のタスクに移りますか？",
                         "template": {
@@ -39,11 +40,29 @@ class LineBotMessagesController < ApplicationController
                         }
                       }
                     when "はい"
+                      user = User.find_by(line_id: event['source']['userId'])
+                      today = DateTime.now.wday + 1
+
+                      # 平日タスクと休日タスクで場合分け
+                      today_notification_tasks = Notification.all.today_send_messages(user.id).map(&:task)
+                      if user.profile.day_of_weeks.ids.include?(today)
+                        # 休日の場合
+                        @task = (user.tasks.middle + user.tasks.long - today_notification_tasks).sample
+                      else
+                        # 平日の場合
+                        @task = (user.tasks.short - today_notification_tasks).sample
+                      end
+
+                      break if @task.nil?
+
+                      notification = @task.notifications.new(delivery_date: DateTime.current, user_id: user.id)
+                      notification.save
+
                       { "type": "template",
                         "altText": "次のタスク",
                         "template": {
                           "type": "buttons",
-                          "text": "次のタスク",
+                          "text": "タイトル: #{@task.title}\n内容: #{@task.body}",
                           "actions": [
                             {
                               "type": "message",
