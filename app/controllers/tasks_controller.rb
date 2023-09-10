@@ -34,6 +34,12 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @notifications = Notification.where(task_id: @task.id)
+    if @notifications
+      @notifications.each do |notification|
+        notification.update(task_id: nil)
+      end
+    end
     @task.destroy!
     redirect_to tasks_path, success: 'タスクを削除しました', status: :see_other
   end
