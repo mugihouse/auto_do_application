@@ -58,25 +58,29 @@ class LineBotMessagesController < ApplicationController
                           @task = (user.tasks.short - today_notification_tasks).sample
                         end
 
-                        break if @task.nil?
-
-                        notification = @task.notifications.new(delivery_date: DateTime.current, user_id: user.id)
-                        notification.save
-
-                        { "type": "template",
-                          "altText": "次のタスク",
-                          "template": {
-                            "type": "buttons",
-                            "text": "タイトル: #{@task.title}\n内容: #{@task.body}",
-                            "actions": [
-                              {
-                                "type": "message",
-                                "label": "完了",
-                                "text": "タスクを完了しました"
-                              }
-                            ]
+                        if @task.nil?
+                          { "type": "text",
+                            "text": "タスクを全て完了しました！\n今日の配信は終わりです"
                           }
-                        }
+                        else
+                          notification = @task.notifications.new(delivery_date: DateTime.current, user_id: user.id)
+                          notification.save
+
+                          { "type": "template",
+                            "altText": "次のタスク",
+                            "template": {
+                              "type": "buttons",
+                              "text": "タイトル: #{@task.title}\n内容: #{@task.body}",
+                              "actions": [
+                                {
+                                  "type": "message",
+                                  "label": "完了",
+                                  "text": "タスクを完了しました"
+                                }
+                              ]
+                            }
+                          }
+                        end
                       end
                     when "いいえ"
                       { "type": "text",
