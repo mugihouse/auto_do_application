@@ -50,7 +50,7 @@ class LineBotMessagesController < ApplicationController
                         # ユーザーに配信したタスクの有無をチェック
                         if Notification.all.today_send_task(user.id).present?
                           { "type": "text",
-                          "text": "先ほど配信したタスクが終わっていません！",
+                            "text": "先ほど配信したタスクが終わっていません！",
                           }
                         else
                           # 平日タスクと休日タスクで場合分け
