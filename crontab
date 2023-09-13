@@ -1,1 +1,1 @@
-*/5 * * * * bundle exec rake /rails/lib/tasks/remind_task.rake notification_task:remind_today_task
+*/30 * * * * bundle exec rake /rails/lib/tasks/remind_task.rake notification_task:remind_today_task

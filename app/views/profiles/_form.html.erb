@@ -3,13 +3,13 @@
   <div class="row mb-3">
     <div class="col-auto">
       <%= f.label :dinner_time, class: "col-sm-2 col-form-label" %>
-        <%= f.time_select :dinner_time, minute_step: 5, default: { hour: 19, min: 0 }, class: 'form-control' %>
+        <%= f.time_select :dinner_time, minute_step: 30, default: { hour: 19, min: 0 }, class: 'form-control' %>
     </div>
   </div>
   <div class="row mb-3">
     <div class="col-auto">
       <%= f.label :bedtime, class: "col-sm-2 col-form-label" %>
-        <%= f.time_select :bedtime, minute_step: 5, default: { hour: 23, min: 0 }, class: 'form-control' %>
+        <%= f.time_select :bedtime, minute_step: 30, default: { hour: 23, min: 0 }, class: 'form-control' %>
     </div>
   </div>
   <div class="row mb-3">
