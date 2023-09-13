@@ -45,7 +45,7 @@ class LineBotMessagesController < ApplicationController
                       profile = user.profile
                       today = DateTime.now.wday + 1
 
-                      # 配信時間ないか判定
+                      # 配信時間内か判定
                       if profile.time_between?()
                         # ユーザーに配信したタスクの有無をチェック
                         if Notification.all.today_send_task(user.id).present?
