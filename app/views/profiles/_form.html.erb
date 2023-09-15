@@ -23,5 +23,13 @@
           <% end %>
       </div>
   </div>
+  <div class="row mb-3">
+    <div class="col-auto">
+      <div class="form-check form-switch">
+        <%= f.check_box :notification_setting, { id: 'flexSwitchCheckChecked', class: 'form-check-input' }, 'turn_on', 'turn_off' %>
+        <%= f.label :notification_setting, class: 'form-check-label' %>
+      </div>
+    </div>
+  </div>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
