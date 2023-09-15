@@ -36,6 +36,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:dinner_time, :bedtime, day_of_week_ids: [])
+    params.require(:profile).permit(:dinner_time, :bedtime, :notification_setting, day_of_week_ids: [])
   end
 end
