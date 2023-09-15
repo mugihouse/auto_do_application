@@ -6,6 +6,10 @@ class Profile < ApplicationRecord
 
   validates :dinner_time, presence: true
   validates :bedtime, presence: true
+  validates :notification_setting, presence: true
+  validates :notification_setting, inclusion: { in: ['turn_on', "turn_off"] }
+
+  enum notification_setting: { turn_on: true, turn_off: false }
 
   def time_between?(dinner_time: set_dinner_time, now_time: set_current_time, bedtime: set_bedtime)
     if dinner_time <= bedtime
