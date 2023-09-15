@@ -9,11 +9,16 @@ ja:
       profile:
         dinner_time: '夕ご飯の時間'
         bedtime: '就寝時間'
+        notification_setting: '配信設定'
       task:
         title: 'タイトル'
         body: '内容'
         time_required: '所要時間'
   enums:
+    profile:
+      notification_setting:
+        turn_on: 'オン'
+        turn_off: 'オフ'
     task:
       time_required:
         short: '短い'
