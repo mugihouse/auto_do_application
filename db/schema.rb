@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_08_131345) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_15_062224) do
   create_table "day_of_weeks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_131345) do
     t.datetime "updated_at", null: false
     t.datetime "dinner_time"
     t.datetime "bedtime"
+    t.boolean "notification_setting", default: true, null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
