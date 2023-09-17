@@ -21,25 +21,31 @@ class LineBotMessagesController < ApplicationController
                       today_notifications = Notification.all.today_send_messages(user.id)
                       today_notifications.map(&:done_task!)
 
-                      { "type": "template",
-                        "altText": "次のタスクに移りますか？",
-                        "template": {
-                          "type": "buttons",
-                          "text": "次のタスクに移りますか？",
-                          "actions": [
-                            {
-                              "type": "message",
-                              "label": "はい",
-                              "text": "はい"
-                            },
-                            {
-                              "type": "message",
-                              "label": "いいえ",
-                              "text": "いいえ"
-                            }
-                          ]
+                      if user.profile.time_between?
+                        { "type": "template",
+                          "altText": "次のタスクに移りますか？",
+                          "template": {
+                            "type": "buttons",
+                            "text": "次のタスクに移りますか？",
+                            "actions": [
+                              {
+                                "type": "message",
+                                "label": "はい",
+                                "text": "はい"
+                              },
+                              {
+                                "type": "message",
+                                "label": "いいえ",
+                                "text": "いいえ"
+                              }
+                            ]
+                          }
                         }
-                      }
+                      else
+                        { "type": "text",
+                          "text": "配信時間を超えました\n次の配信までしばらくお待ちください😌"
+                        }
+                      end
                     when "はい"
                       user = User.find_by(line_id: event['source']['userId'])
                       profile = user.profile
