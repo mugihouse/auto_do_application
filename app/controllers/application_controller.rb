@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_liff_id
-    gon.liff_id = ENV['LIFF_ID']
+    gon.liff_id = ENV.fetch('LIFF_ID', nil)
   end
 
   def current_user

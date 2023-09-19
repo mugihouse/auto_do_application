@@ -5,8 +5,8 @@ namespace :notification_task do
     today = DateTime.now.wday + 1
 
     client = Line::Bot::Client.new do |config|
-      config.channel_secret = ENV['BOT_CHANNEL_SECRET']
-      config.channel_token = ENV['BOT_CHANNEL_TOKEN']
+      config.channel_secret = ENV.fetch('BOT_CHANNEL_SECRET', nil)
+      config.channel_token = ENV.fetch('BOT_CHANNEL_TOKEN', nil)
     end
 
     users.each do |user|

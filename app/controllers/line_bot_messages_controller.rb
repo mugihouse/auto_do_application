@@ -114,8 +114,8 @@ class LineBotMessagesController < ApplicationController
 
   def client
     @client ||= Line::Bot::Client.new do |config|
-      config.channel_secret = ENV['BOT_CHANNEL_SECRET']
-      config.channel_token = ENV['BOT_CHANNEL_TOKEN']
+      config.channel_secret = ENV.fetch('BOT_CHANNEL_SECRET', nil)
+      config.channel_token = ENV.fetch('BOT_CHANNEL_TOKEN', nil)
     end
   end
 end
