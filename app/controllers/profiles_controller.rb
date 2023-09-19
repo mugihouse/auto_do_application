@@ -2,9 +2,13 @@ class ProfilesController < ApplicationController
   before_action :login_required
   before_action :set_profile, only: %i[show edit update]
 
+  def show; end
+
   def new
     @profile = Profile.new()
   end
+
+  def edit; end
 
   def create
     @profile = current_user.build_profile(profile_params)
@@ -15,10 +19,6 @@ class ProfilesController < ApplicationController
       render :new
     end
   end
-
-  def show; end
-
-  def edit; end
 
   def update
     if @profile.update(profile_params)

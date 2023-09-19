@@ -6,9 +6,13 @@ class TasksController < ApplicationController
     @tasks = current_user.tasks.all
   end
 
+  def show; end
+
   def new
     @task = Task.new()
   end
+
+  def edit; end
 
   def create
     @task = current_user.tasks.new(task_params)
@@ -19,10 +23,6 @@ class TasksController < ApplicationController
       render :new
     end
   end
-
-  def show; end
-
-  def edit; end
 
   def update
     if @task.update(task_params)
