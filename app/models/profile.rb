@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  has_many :profile_day_of_weeks, dependent: :destroy
+  has_many :profile_day_of_weeks, dependent: :nullify
   has_many :day_of_weeks, :through => :profile_day_of_weeks
 
   validates :dinner_time, presence: true
