@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def create
     id_token = params[:idToken]
-    channel_id = ENV['CHANNEL_ID']
+    channel_id = ENV.fetch('CHANNEL_ID', nil)
     # IDトークンを検証し、ユーザーの情報を取得
     res = Net::HTTP.post_form(URI.parse('https://api.line.me/oauth2/v2.1/verify'), { 'id_token' => id_token, 'client_id' => channel_id })
     # LINEユーザーIDを取得
