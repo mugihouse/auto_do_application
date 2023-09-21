@@ -1,28 +1,52 @@
 <div class="container">
   <div class="row">
-    <div class="jumbotron">
-      <div class="col-12">
-        <h1 class="text-center my-2">自動でタスクを選び<br>LINEで配信</h1>
-        <%= image_tag '1544162981.png', class: 'd-block mx-auto img-fluid' %>
-      </div>
-    </div>
     <div class="col-12">
-      <div class="text-center">
-        <p>使い方</p>
-          <p>1. LINEで友だち登録&ログイン</p>
-          <p>下のリンクから友達登録をしましょう</p>
-            <div class="col-12">
-              <%= image_tag 'S_gainfriends_2dbarcodes_BW.png' , alt: '友だち登録' , class: 'd-block mx-auto my-1' %>
-              <%= link_to 'https://lin.ee/4zIuNnB' do %>
-                <%= image_tag 'line_add_friends:btn:ja.png' , height: '36' , border: '0', class: 'd-block mx-auto my-1' %>
-              <% end %>
-            </div>
-        <p>2. プロフィールを登録しタスクの配信時間を決めます</p>
-        <% # 画像を挟む %>
-        <p>3. タスクを登録しましょう</p>
-        <% # 画像を挟む %>
-        <p>4. 夕ご飯の時間に設定した1時間後に今日のタスクが配信されます</p>
-        <% # 画像を挟む %>
+      <h1 class="text-center pt-2 my-2">自動でタスクを選び<br>LINEで配信</h1>
+      <%= image_tag '1544162981.png', class: 'd-block mx-auto img-fluid pb-3' %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 text-center py-2 my-2">
+      <h4>やりたいこと、やらなきゃいけないことはあるのに動けない</h4>
+      <p>見て見ぬふりをしているタスクが溜まっていませんか？</p>
+      <%= image_tag '1547445463.png' , size: '200x200' , class: 'd-block mx-auto img-fluid' %>
+    </div>
+    <div class="col-sm-6 text-center py-2 my-2">
+      <h4>ご飯を食べたあといつの間にか時間が経っている...</h4>
+      <p>気がついたら1時間もスマホを見てしまった</p>
+      <%= image_tag '1513247951-4.png' , size: '200x200' , class: 'd-block mx-auto img-fluid' %>
+    </div>
+  </div>
+</div>
+<div class="container my-3 py-3">
+  <div class="row change-scene">
+    <div class="text-center py-3">
+      <h3>AutoDoを使ってこの悩みを解消してみませんか？</h3>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 text-center py-2 my-2">
+      <h4>事前準備はプロフィールとタスクを登録するだけ</h4>
+      <p>あなたの夕食の時間や休日、やりたいタスクを教えてください</p>
+      <%= image_tag '1547445472.png' , size: '200x200' , class: 'd-block mx-auto img-fluid' %>
+    </div>
+    <div class="col-sm-6 text-center py-2 my-2">
+      <h4>夕食が終わった時間をめがけてLINEでタスクを配信します</h4>
+      <p>タスクは平日休日に合わせてランダムに選びます</p>
+      <%= image_tag '1512971999-1.png' , size: '200x200' , class: 'd-block mx-auto img-fluid' %>
+    </div>
+    <div class="text-center">
+      <div class="col-sm-12 text-center border-bottom border-gray py-2 my-2">
+        <h4 class="fw-bold">LINEで友だち登録&ログイン</h4>
+        <p>まずは下のリンクから友達登録をお願いします</p>
+        <%= image_tag 'S_gainfriends_2dbarcodes_BW.png' , alt: '友だち登録' , class: 'd-block mx-auto my-2' %>
+        <%= link_to 'https://lin.ee/4zIuNnB' do %>
+          <%= image_tag 'line_add_friends:btn:ja.png' , height: '36' , border: '0' , class: 'd-block mx-auto my-2' %>
+        <% end %>
       </div>
     </div>
   </div>
