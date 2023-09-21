@@ -1,16 +1,30 @@
 <div class="container">
   <div class="row">
-    <div class="col-10 offset-1">
-      <% if current_user.profile.nil? %>
-        <div class="text-center">
-          <p>最初にプロフィールを登録しましょう！</p>
-          <%= link_to 'プロフィール登録', new_profile_path, class: "btn btn-primary" %>
-        </div>
-      <% else %>
-        <h2>マイページ</h2>
-        <p>開発中...</p>
-        <% # 今週のログを挿入予定 %>
-      <% end %>
-    </div>
+    <% if current_user.profile.nil? %>
+      <div class="text-center">
+        <p>最初にプロフィールを登録しましょう<br>下のリンクからお願いします</p>
+        <%= link_to 'プロフィール登録', new_profile_path, class: "btn btn-primary" %>
+      </div>
+    <% else %>
+      <% # 今週のログを挿入予定 %>
+      <div class="text-center">
+        <h1 class="my-2">- how to use -</h1>
+      </div>
+      <div class="col-sm-4 text-center border-bottom border-gray py-2 my-2">
+        <h4 class="fw-bold">プロフィールを登録して<br>タスクの配信時間を決めます</h4>
+        <p>休日を設定すると<br>平日にはささっと終わる短めのタスク、<br>休日には長時間かかるタスクを配信します</p>
+        <%= image_tag '1534069731.png' , size: '200x200' , class: 'd-block mx-auto img-fluid' %>
+      </div>
+      <div class="col-sm-4 text-center border-bottom border-gray py-2 my-2">
+        <h4 class="fw-bold">タスクを登録しましょう</h4>
+        <p>タイトルと時間だけ登録すればOKです<br>思いついたときに登録してみましょう</p>
+        <%= image_tag '1533000576-2.png' , size: '200x200' , class: 'd-block mx-auto img-fluid' %>
+      </div>
+      <div class="col-sm-4 text-center border-bottom border-gray py-2 my-2">
+        <h4 class="fw-bold">夕ご飯の時間に設定した1時間後に<br>今日のタスクをお知らせ</h4>
+        <p>あとはLINEが来るのを待つだけ<br>タスクは自動で一つ選んで配信します</p>
+        <%= image_tag '1513228735.png' , size: '200x200' , class: 'd-block mx-auto img-fluid' %>
+      </div>
+    <% end %>
   </div>
 </div>
