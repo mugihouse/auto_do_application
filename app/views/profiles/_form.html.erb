@@ -1,35 +1,29 @@
 <%= form_with model: profile, url: profile_path, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="row mb-3">
-    <div class="col-auto">
-      <%= f.label :dinner_time, class: "col-sm-2 col-form-label" %>
-        <%= f.time_select :dinner_time, minute_step: 30, default: { hour: 19, min: 0 }, class: 'form-control' %>
-    </div>
+  <div class="my-2">
+    <%= f.label :dinner_time, class: "form-label col-5" %>
+    <%= f.time_select :dinner_time, minute_step: 30, default: { hour: 19, min: 0 }, class: 'form-control' %>
   </div>
-  <div class="row mb-3">
-    <div class="col-auto">
-      <%= f.label :bedtime, class: "col-sm-2 col-form-label" %>
-        <%= f.time_select :bedtime, minute_step: 30, default: { hour: 23, min: 0 }, class: 'form-control' %>
-    </div>
+  <div class="my-2">
+    <%= f.label :bedtime, class: "form-label col-5" %>
+    <%= f.time_select :bedtime, minute_step: 30, default: { hour: 23, min: 0 }, class: 'form-control' %>
   </div>
-  <div class="row mb-3">
-    <%= f.label :day_of_weeks, DayOfWeek.model_name.human,  class: 'col-form-label col-sm-2 pt-0' %>
-      <div class="col-sm-10">
-        <%= f.collection_check_boxes(:day_of_week_ids, DayOfWeek.all, :id, :name) do |b| %>
-          <div class="form-check">
-            <%= b.label class: 'form-check-label' %>
-              <%= b.check_box class: 'form-check-input' %>
-          </div>
-          <% end %>
+  <div class="my-2">
+    <%= f.label :day_of_weeks, DayOfWeek.model_name.human,  class: 'form-label col-5' %>
+    <%= f.collection_check_boxes(:day_of_week_ids, DayOfWeek.all, :id, :name) do |b| %>
+      <div class="form-check">
+        <%= b.label class: 'form-check-label' %>
+          <%= b.check_box class: 'form-check-input' %>
       </div>
+    <% end %>
   </div>
-  <div class="row mb-3">
-    <div class="col-auto">
-      <div class="form-check form-switch">
-        <%= f.check_box :notification_setting, { id: 'flexSwitchCheckChecked', class: 'form-check-input' }, 'turn_on', 'turn_off' %>
-        <%= f.label :notification_setting, class: 'form-check-label' %>
-      </div>
+  <div class="my-2">
+    <div class="form-check form-switch">
+      <%= f.check_box :notification_setting, { id: 'flexSwitchCheckChecked', class: 'form-check-input' }, 'turn_on', 'turn_off' %>
+      <%= f.label :notification_setting, class: 'form-check-label' %>
     </div>
   </div>
-  <%= f.submit class: 'btn btn-primary' %>
+  <div class="text-end">
+    <%= f.submit class: 'btn btn-secondary btn-color mt-2' %>
+  </div>
 <% end %>
