@@ -3,7 +3,7 @@
     <% if current_user.profile.nil? %>
       <div class="text-center">
         <p>最初にプロフィールを登録しましょう<br>下のリンクからお願いします</p>
-        <%= link_to 'プロフィール登録', new_profile_path, class: "btn btn-primary" %>
+        <%= link_to 'プロフィール登録', new_profile_path, class: "btn btn-secondary btn-color" %>
       </div>
     <% else %>
       <% # 今週のログを挿入予定 %>
