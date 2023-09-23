@@ -3,27 +3,27 @@
     <div class="col-10 offset-1">
       <h1 class="text-4xl font mt-4">タスク詳細</h1>
     </div>
-      <div class="col-5 offset-1 text-center">
+      <div class="col-3 offset-1 text-center">
         <%= Task.human_attribute_name(:title) %>
       </div>
-      <div class="col-5 text-center">
+      <div class="col-8 text-center">
         <%= @task.title %>
       </div>
-      <div class="col-5 offset-1 text-center">
+      <div class="col-3 offset-1 text-center">
         <%= Task.human_attribute_name(:body) %>
       </div>
-      <div class="col-5 text-center">
+      <div class="col-8 text-center">
         <%= @task.body %>
       </div>
-      <div class="col-5 offset-1 text-center">
+      <div class="col-3 offset-1 text-center">
         <%= Task.human_attribute_name(:time_required) %>
       </div>
-      <div class="col-5 text-center">
+      <div class="col-8 text-center">
         <%= @task.time_required_i18n %>
       </div>
-      <div class="text-end mb-3">
+      <div class="text-end my-3">
         <%= link_to t('defaults.edit'), edit_task_path(@task), class: 'btn btn-secondary btn-color me-3' %>
-        <%= link_to t('defaults.delete'), task_path(@task), data: { turbo: true, turbo_method: :delete, turbo_confirm: t('defaults.messages.delete_confirm') }, class: 'btn btn-danger' %>
+        <%= link_to t('defaults.delete'), task_path(@task), data: { turbo: true, turbo_method: :delete, turbo_confirm: t('defaults.messages.delete_confirm') }, class: 'btn btn-secondary btn-alert-color me-3' %>
       </div>
   </div>
 </div>
