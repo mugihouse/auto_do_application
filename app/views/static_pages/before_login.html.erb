@@ -22,7 +22,7 @@
 </div>
 <div class="container my-3 py-3">
   <div class="row change-scene">
-    <div class="text-center py-3">
+    <div class="text-center pt-3 pb-2">
       <h3>AutoDoを使ってこの悩みを解消してみませんか？</h3>
     </div>
   </div>
@@ -39,15 +39,17 @@
       <p>タスクは平日休日に合わせてランダムに選びます</p>
       <%= image_tag '1512971999-1.png' , size: '200x200' , class: 'd-block mx-auto img-fluid' %>
     </div>
-    <div class="text-center">
-      <div class="col-sm-12 text-center border-bottom border-gray py-2 my-2">
-        <h4 class="fw-bold">LINEで友だち登録&ログイン</h4>
-        <p>まずは下のリンクから友達登録をお願いします</p>
-        <%= image_tag 'S_gainfriends_2dbarcodes_BW.png' , alt: '友だち登録' , class: 'd-block mx-auto my-2' %>
-        <%= link_to 'https://lin.ee/4zIuNnB' do %>
-          <%= image_tag 'line_add_friends:btn:ja.png' , height: '36' , border: '0' , class: 'd-block mx-auto my-2' %>
-        <% end %>
+    <span class="border m-auto">
+      <div class="text-center">
+        <div class="col-sm-12 text-center py-2 my-2">
+          <h4 class="fw-bold">LINEで友だち登録&ログインをして始めてみましょう</h4>
+          <p>まずは下のリンクから友だち登録をお願いします</p>
+          <%= image_tag 'S_gainfriends_2dbarcodes_BW.png' , alt: '友だち登録' , class: 'd-block mx-auto my-2' %>
+          <%= link_to 'https://lin.ee/4zIuNnB' do %>
+            <%= image_tag 'line_add_friends:btn:ja.png' , height: '36' , border: '0' , class: 'd-block mx-auto my-2' %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    </span>
   </div>
 </div>
