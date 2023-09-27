@@ -5,6 +5,7 @@ ja:
       profile: 'プロフィール'
       task: 'タスク'
       day_of_week: '休日の曜日'
+      notification: '通知'
     attributes:
       profile:
         dinner_time: '夕ご飯の時間'
@@ -15,6 +16,10 @@ ja:
         body: '内容'
         time_required: '所要時間'
   enums:
+    user:
+      role:
+        general: '一般'
+        admin: '管理者'
     profile:
       notification_setting:
         turn_on: 'オン'
