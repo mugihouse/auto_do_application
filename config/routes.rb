@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'static_pages#top'
   get '/after_login', to: 'static_pages#after_login'
 
