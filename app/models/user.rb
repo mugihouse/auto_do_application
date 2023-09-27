@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   validates :line_id, presence: true, uniqueness: true
+
+  enum role: { general: 0, admin: 1 }
 end
