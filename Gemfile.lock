@@ -84,6 +84,7 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    diff-lcs (1.5.0)
     dockerfile-rails (1.5.1)
       rails
     dotenv (2.8.1)
@@ -93,6 +94,11 @@ GEM
     enum_help (0.0.19)
       activesupport (>= 3.0.0)
     erubi (1.12.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     ffi (1.16.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -213,6 +219,23 @@ GEM
     request_store (1.5.1)
       rack (>= 1.4)
     rexml (3.2.6)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.3)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.1)
     rubocop (1.56.3)
       base64 (~> 0.1.1)
       json (~> 2.3)
@@ -287,6 +310,7 @@ DEPENDENCIES
   dockerfile-rails (>= 1.5)
   dotenv-rails
   enum_help
+  factory_bot_rails
   gon
   jbuilder
   jsbundling-rails
@@ -296,6 +320,7 @@ DEPENDENCIES
   rails (~> 7.0.6)
   rails-i18n
   rails_admin
+  rspec-rails
   rubocop
   rubocop-performance
   rubocop-rails
