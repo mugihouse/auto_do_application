@@ -49,10 +49,10 @@ class TasksController < ApplicationController
       redirect_to tasks_path, success: 'タスクを削除しました'
     else
       flash.now[:danger] = 'タスクの削除に失敗しました'
-      render
+      render :show
     end
   end
-  
+
   private
 
   def set_task
