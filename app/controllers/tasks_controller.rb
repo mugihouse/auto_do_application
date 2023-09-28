@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
   before_action :login_required
-  before_action :set_task, only: %i[show edit update destroy]
+  before_action :set_task, only: %i[show edit update destroy change_status]
 
   def index
-    @tasks = current_user.tasks.all
+    @tasks = current_user.tasks.all.where(status: 0)
   end
 
   def show; end
@@ -42,6 +42,15 @@ class TasksController < ApplicationController
     end
     @task.destroy!
     redirect_to tasks_path, success: 'タスクを削除しました', status: :see_other
+  end
+
+  def change_status
+    if @task.finish!
+      redirect_to tasks_path, success: 'タスクを削除しました'
+    else
+      flash.now[:danger] = 'タスクの削除に失敗しました'
+      render :show
+    end
   end
 
   private
