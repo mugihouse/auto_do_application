@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'static_pages#top'
   get '/after_login', to: 'static_pages#after_login'
@@ -8,5 +8,9 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resource :profile, only: %i[new create show edit update]
-  resources :tasks
+  resources :tasks do
+    member do
+      put :change_status
+    end
+  end
 end
