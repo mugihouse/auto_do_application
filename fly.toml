@@ -11,6 +11,9 @@ console_command = "/rails/bin/rails console"
   web = "bin/rails server"
   cron = "supercronic /rails/crontab"
 
+[deploy]
+  release_command = "bin/rails db:prepare"
+
 [http_service]
   internal_port = 3000
   force_https = true
