@@ -3,6 +3,8 @@ class Notification < ApplicationRecord
   belongs_to :user
 
   validates :status, presence: true
+  validates :user_id, presence: true
+  validates :task_id, presence: true
 
   enum status: { send_task: 0, done_task: 1 }
 
