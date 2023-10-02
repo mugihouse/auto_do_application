@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_28_114054) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_02_103637) do
   create_table "day_of_weeks", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -19,11 +19,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_114054) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer "status", default: 0, null: false
-    t.integer "task_id"
+    t.integer "task_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "delivery_date"
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.index ["task_id"], name: "index_notifications_on_task_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
