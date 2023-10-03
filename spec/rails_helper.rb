@@ -62,6 +62,19 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
+  # テストケース共通の事前処理
+  config.before(:each) do
+
+    # let(:rspec_session) で指定された値を セッションの初期値とします
+    session = defined?(rspec_session) ? rspec_session : {}
+
+    # destroyメソッドを実行してもエラーにならないようにします（必要であれば）
+    session.class_eval { def destroy; nil; end }
+
+    # sessionメソッドを上書き
+    allow_any_instance_of(ActionDispatch::Request).to receive(:session).and_return(session)
+  end
+
   config.include FactoryBot::Syntax::Methods
 
   config.include LoginSupport
