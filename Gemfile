@@ -83,6 +83,8 @@ group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
+  gem "dockerfile-rails", ">= 1.5"
+
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'rubocop', require: false
@@ -90,8 +92,11 @@ group :development do
   gem 'rubocop-rails', require: false
 end
 
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
+
 group :production do
   gem 'pg'
 end
-
-gem "dockerfile-rails", ">= 1.5", :group => :development
