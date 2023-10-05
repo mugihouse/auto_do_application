@@ -82,7 +82,7 @@ RSpec.describe "Tasks", type: :system do
         click_button '登録'
         expect(page).to have_content('edit_test_title')
         expect(page).to have_content('edit_test_body')
-        expect(page).to have_content('長い')
+        expect(page).to have_content('かなり長い')
         expect(current_path).to eq task_path(task)
       end
     end
