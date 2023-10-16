@@ -11,5 +11,7 @@ class StaticPagesController < ApplicationController
 
   def after_login; end
 
+  def terms; end
+
   def privacy; end
 end
