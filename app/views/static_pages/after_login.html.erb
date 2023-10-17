@@ -6,7 +6,8 @@
         <%= link_to 'プロフィール登録', new_profile_path, class: "btn btn-secondary btn-color" %>
       </div>
     <% else %>
-      <% # 今週のログを挿入予定 %>
+      <canvas id="chart" class="my-4"></canvas>
+        <%= javascript_include_tag "chart", "data-turbo-track": "reload" , defer: true %>
       <div class="text-center">
         <h1 class="my-2">- how to use -</h1>
       </div>
