@@ -9,6 +9,9 @@ module ApplicationHelper
       keywords: 'タスク管理,todo管理,todoアプリ',
       canonical: request.original_url,
       separator: '|',
+      icon: {
+         href: image_url('favicon.ico')
+        },
       og: {
         site_name: :site,
         title: :title,
