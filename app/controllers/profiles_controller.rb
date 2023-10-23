@@ -13,18 +13,18 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_user.build_profile(profile_params)
     if @profile.save
-      redirect_to profile_path(current_user), success: 'プロフィールを登録しました'
+      redirect_to profile_path(current_user), success: t('defaults.messages.created', item: Profile.model_name.human)
     else
-      flash.now[:danger] = 'プロフィールの作成に失敗しました'
+      flash.now[:danger] = t('defaults.messages.not_created', item: Profile.model_name.human)
       render :new
     end
   end
 
   def update
     if @profile.update(profile_params)
-      redirect_to profile_path(@profile), success: 'プロフィールを更新しました'
+      redirect_to profile_path(@profile), success: t('defaults.messages.updated', item: Profile.model_name.human)
     else
-      flash.now[:danger] = 'プロフィールの更新に失敗しました'
+      flash.now[:danger] = t('defaults.messages.not_updated', item: Profile.model_name.human)
       render :edit
     end
   end

@@ -38,8 +38,8 @@ RSpec.describe "Profiles", type: :system do
     context '正常系' do
       it 'プロフィールが表示される' do
         visit profile_path
-         expect(page).to have_content(profile.dinner_time.strftime( "%H:%M" ))
-         expect(page).to have_content(profile.bedtime.strftime( "%H:%M" ))
+        expect(page).to have_content(profile.dinner_time.strftime("%H:%M"))
+        expect(page).to have_content(profile.bedtime.strftime("%H:%M"))
       end
     end
   end

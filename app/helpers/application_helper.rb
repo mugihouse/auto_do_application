@@ -10,8 +10,8 @@ module ApplicationHelper
       canonical: request.original_url,
       separator: '|',
       icon: {
-         href: image_url('favicon.ico')
-        },
+        href: image_url('favicon.ico')
+      },
       og: {
         site_name: :site,
         title: :title,

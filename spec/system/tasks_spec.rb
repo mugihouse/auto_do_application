@@ -71,8 +71,8 @@ RSpec.describe "Tasks", type: :system do
 
   describe 'Task#edit' do
     before do
-        login(task)
-        visit edit_task_path(task)
+      login(task)
+      visit edit_task_path(task)
     end
     context '正常系' do
       it 'タスクを編集すると、詳細画面に編集後の内容が表示される' do

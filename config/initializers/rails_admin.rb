@@ -7,8 +7,8 @@ RailsAdmin.config do |config|
   config.authenticate_with do
     user_id = session[:user_id]
     user = User.find(user_id) if user_id
-    unless user && user.admin?
-      flash[:alert] = "権限がありません"
+    unless user&.admin?
+      flash[:alert] = t('defaults.messages.not_authorized')
       redirect_to main_app.root_path
     end
   end

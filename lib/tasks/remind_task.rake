@@ -27,16 +27,16 @@ namespace :notification_task do
         notification = @task.notifications.new(delivery_date: DateTime.current, user_id: user.id)
         notification.save
 
-        message = { "type": "template",
-                    "altText": "今日のタスク",
-                    "template": {
-                      "type": "buttons",
-                      "text": "タイトル: #{@task.title}\n内容: #{@task.body}",
-                      "actions": [
+        message = { type: "template",
+                    altText: "今日のタスク",
+                    template: {
+                      type: "buttons",
+                      text: "タイトル: #{@task.title}\n内容: #{@task.body}",
+                      actions: [
                         {
-                          "type": "message",
-                          "label": "完了",
-                          "text": "タスクを完了しました"
+                          type: "message",
+                          label: "完了",
+                          text: "タスクを完了しました"
                         }
                       ]
                     }

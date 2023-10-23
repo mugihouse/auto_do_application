@@ -3,7 +3,6 @@ class Notification < ApplicationRecord
   belongs_to :user
 
   validates :status, presence: true
-  validates :user_id, presence: true
   validates :task_id, presence: true
 
   enum status: { send_task: 0, done_task: 1 }
@@ -13,13 +12,13 @@ class Notification < ApplicationRecord
 
   scope :done_today, -> { where(created_at: DateTime.now.all_day) } # 今日
   scope :done_1day_ago, -> { where(created_at: 1.day.ago.all_day) } # 前日
-  scope :done_2day_ago, -> { where(created_at: 2.day.ago.all_day,) } # 2日前
-  scope :done_3day_ago, -> { where(created_at: 3.day.ago.all_day) } # 3日前
-  scope :done_4day_ago, -> { where(created_at: 4.day.ago.all_day) } # 4日前
-  scope :done_5day_ago, -> { where(created_at: 5.day.ago.all_day) } # 5日前
-  scope :done_6day_ago, -> { where(created_at: 6.day.ago.all_day) } # 6日前
+  scope :done_2day_ago, -> { where(created_at: 2.days.ago.all_day) } # 2日前
+  scope :done_3day_ago, -> { where(created_at: 3.days.ago.all_day) } # 3日前
+  scope :done_4day_ago, -> { where(created_at: 4.days.ago.all_day) } # 4日前
+  scope :done_5day_ago, -> { where(created_at: 5.days.ago.all_day) } # 5日前
+  scope :done_6day_ago, -> { where(created_at: 6.days.ago.all_day) } # 6日前
 
-  def get_time
-    self.task.time_required_before_type_cast
+  def put_time
+    task.time_required_before_type_cast
   end
 end

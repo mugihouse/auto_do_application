@@ -1,7 +1,16 @@
 ja:
   defaults:
+    register: '登録'
     edit: '編集'
     delete: '削除'
     index: '一覧へ戻る'
     messages:
+      require_login: 'ログインしてください'
+      created: "%{item}を登録しました"
+      not_created: "%{item}の作成に失敗しました"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}の更新に失敗しました"
       delete_confirm: 'このタスクを削除しますか？'
+      destroyed: "%{item}を削除しました"
+      not_destroyed: '%{item}の削除に失敗しました'
+      not_authorized: '権限がありません'
