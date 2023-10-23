@@ -56,6 +56,7 @@ todoリストの中から暇な時間をめがけて
 - マイページでこなしたタスクのログを確認できる
 - 管理者画面よりユーザー、タスクの管理を行えるようにする
 - 利用規約・プライバシーポリシー
+- Metaタグ
 
 
 ## なぜこのサービスを作りたいのか？
@@ -74,14 +75,18 @@ todoリストの中から暇な時間をめがけて
 
 ## 使用技術
 
+**バックエンド**
 - Ruby 3.2.2
 - Rails 7.0.6
+
+**フロントエンド**
 - Bootstrap 5.2.3
 - LIFF(LINE Front-end Framework)
 - LINE Messaging API
-- RSpec
 - JavaScript
 
+**インフラ**
+- fly.io
 
 ## スケジュール
 
@@ -89,7 +94,7 @@ todoリストの中から暇な時間をめがけて
 README〜ER図作成：7/6 〆切
 メイン機能実装：7/6 - 9/19
 β版をRUNTEQ内リリース（MVP）：9/20 〆切
-本番リリース：10/20
+本番リリース：10/23
 
 ## 画面遷移図
 
@@ -97,4 +102,4 @@ https://www.figma.com/file/Zag0Ou5iA97zARoYnyeV9j/%E7%94%BB%E9%9D%A2%E9%81%B7%E7
 
 ## ER図
 
-https://drive.google.com/file/d/1nYNbskVNv_8Xn0WER9LDXoBGjUTsDQ7s/view?usp=sharing
+![alt](https://i.gyazo.com/1b11d18cd822e7a195e0f5bdfa832bdf.png)
