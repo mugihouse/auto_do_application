@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def login_required
     unless current_user
-      flash[:danger] = 'ログインしてください'
+      flash[:danger] = t('defaults.messages.require_login')
       redirect_back fallback_location: root_path
     end
 

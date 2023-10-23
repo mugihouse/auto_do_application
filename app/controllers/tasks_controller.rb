@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :login_required
-  before_action :set_task, only: %i[show edit update destroy change_status]
+  before_action :set_task, only: %i[show edit update change_status]
 
   def index
     @tasks = current_user.tasks.where(status: 0)
@@ -17,38 +17,27 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
     if @task.save
-      redirect_to task_path(@task), success: 'タスクを登録しました'
+      redirect_to task_path(@task), success: t('defaults.messages.created', item: Task.model_name.human)
     else
-      flash.now[:danger] = 'タスクの作成に失敗しました'
+      flash.now[:danger] = t('defaults.messages.not_created', item: Task.model_name.human)
       render :new
     end
   end
 
   def update
     if @task.update(task_params)
-      redirect_to task_path(@task), success: 'タスクを更新しました'
+      redirect_to task_path(@task), success: t('defaults.messages.updated', item: Task.model_name.human)
     else
-      flash.now[:danger] = 'タスクの更新に失敗しました'
+      flash.now[:danger] = t('defaults.messages.not_updated', item: Task.model_name.human)
       render :edit
     end
   end
 
-  def destroy
-    @notifications = Notification.where(task_id: @task.id)
-    if @notifications
-      @notifications.each do |notification|
-        notification.update(task_id: nil)
-      end
-    end
-    @task.destroy!
-    redirect_to tasks_path, success: 'タスクを削除しました', status: :see_other
-  end
-
   def change_status
     if @task.finish!
-      redirect_to tasks_path, success: 'タスクを削除しました'
+      redirect_to tasks_path, success: t('defaults.messages.destroyed', item: Task.model_name.human)
     else
-      flash.now[:danger] = 'タスクの削除に失敗しました'
+      flash.now[:danger] = t('defaults.messages.not_destroyed', item: Task.model_name.human)
       render :show
     end
   end
