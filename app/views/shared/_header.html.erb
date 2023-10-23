@@ -1,6 +1,8 @@
 <header>
   <nav class="navbar navigation fixed-top navbar-light header-set">
-      <%= link_to 'AutoDo', root_path, class: "navbar-brand ms-3" %>
+      <%= link_to root_path  do %>
+        <%= image_tag 'title.png', size: '100x50', class: "pl-3" %>
+      <% end %>
     <button class="nav-item btn btn-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight">
       <span class="navbar-toggler-icon"></span>
