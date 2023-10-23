@@ -20,7 +20,8 @@ class StaticPagesController < ApplicationController
   def privacy; end
 
   private
-  def this_week_task(user_id)
+
+  def this_week_task(_user_id)
     @total.push(@notifications.done_6day_ago.map(&:get_time).sum)
     @total.push(@notifications.done_5day_ago.map(&:get_time).sum)
     @total.push(@notifications.done_4day_ago.map(&:get_time).sum)
