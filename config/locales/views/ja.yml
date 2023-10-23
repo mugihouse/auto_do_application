@@ -2,5 +2,6 @@ ja:
   defaults:
     edit: '編集'
     delete: '削除'
+    index: '一覧へ戻る'
     messages:
       delete_confirm: 'このタスクを削除しますか？'
