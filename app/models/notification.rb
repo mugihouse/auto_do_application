@@ -3,7 +3,6 @@ class Notification < ApplicationRecord
   belongs_to :user
 
   validates :status, presence: true
-  validates :user_id, presence: true
   validates :task_id, presence: true
 
   enum status: { send_task: 0, done_task: 1 }
@@ -19,7 +18,7 @@ class Notification < ApplicationRecord
   scope :done_5day_ago, -> { where(created_at: 5.days.ago.all_day) } # 5日前
   scope :done_6day_ago, -> { where(created_at: 6.days.ago.all_day) } # 6日前
 
-  def get_time
+  def put_time
     task.time_required_before_type_cast
   end
 end
