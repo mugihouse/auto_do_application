@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
               data_id = data
             })
             .then(() => {
-              window.location = '/after_login'
+              window.location = '/'
             })
         }
       })
