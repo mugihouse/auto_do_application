@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :set_liff_id, only: %i[new]
 
   def new
-    redirect_to after_login_path if current_user
+    redirect_to root_path if current_user
   end
 
   def create
