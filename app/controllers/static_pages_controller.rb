@@ -1,19 +1,15 @@
 class StaticPagesController < ApplicationController
   def top
-    if current_user
-      redirect_to :after_login
-    else
+    unless current_user
       render :before_login
+    else
+      @total = []
+      @notifications = Notification.where(user_id: current_user.id)
+      gon.total = this_week_task
     end
   end
 
   def before_login; end
-
-  def after_login
-    @total = []
-    @notifications = Notification.where(user_id: current_user.id)
-    gon.total = this_week_task
-  end
 
   def terms; end
 
