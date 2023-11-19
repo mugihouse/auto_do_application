@@ -18,12 +18,9 @@ class StaticPagesController < ApplicationController
   private
 
   def this_week_task
-    @total.push(@notifications.done_6day_ago.map(&:put_time).sum)
-    @total.push(@notifications.done_5day_ago.map(&:put_time).sum)
-    @total.push(@notifications.done_4day_ago.map(&:put_time).sum)
-    @total.push(@notifications.done_3day_ago.map(&:put_time).sum)
-    @total.push(@notifications.done_2day_ago.map(&:put_time).sum)
-    @total.push(@notifications.done_1day_ago.map(&:put_time).sum)
+    6.downto(1) { |num|
+      @total.push(@notifications.done_day_ago(num).map(&:put_time).sum)
+    }
     @total.push(@notifications.done_today.map(&:put_time).sum)
   end
 end
