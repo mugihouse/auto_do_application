@@ -14,10 +14,10 @@ task remind_today_task: :environment do
     if (user.profile.dinner_time + 1.hour).strftime("%H:%M") == time
       if user.profile.day_of_weeks.ids.include?(today)
         # 休日の場合
-        @task = (user.tasks.middle + user.tasks.long).sample
+        @task = (user.tasks.doing.middle + user.tasks.doing.long).sample
       else
         # 平日の場合
-        @task = user.tasks.short.sample
+        @task = user.tasks.doing.short.sample
       end
 
       break if @task.nil?
