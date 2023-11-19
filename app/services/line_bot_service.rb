@@ -53,10 +53,10 @@ class LineBotService
                         today_notification_tasks = Notification.all.today_send_messages(@user.id).map(&:task)
                         @task = if @profile.day_of_weeks.ids.include?(today)
                                   # 休日の場合
-                                  (@user.tasks.middle + @user.tasks.long - today_notification_tasks).sample
+                                  (@user.tasks.doing.middle + @user.tasks.doing.long - today_notification_tasks).sample
                                 else
                                   # 平日の場合
-                                  (@user.tasks.short - today_notification_tasks).sample
+                                  (@user.tasks.doing.short - today_notification_tasks).sample
                                 end
 
                         if @task.nil?
